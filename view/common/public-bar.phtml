@@ -1,0 +1,26 @@
+<?php
+$translate = $this->plugin('translate');
+$hyperlink = $this->plugin('hyperlink');
+$urlHelper = $this->plugin('url');
+$searchType = $this->siteSetting('search_type', 'sitewide');
+$logo = $this->themeSettingAssetUrl('logo');
+switch ($searchType) {
+    case 'cross-site':
+        $searchActionNav = $this->url('site/cross-site-search', ['action' => 'results'], true);
+        break;
+    case 'sitewide':
+    default:
+        $searchActionNav = $this->url('site/resource', ['controller' => 'index', 'action' => 'search'], true);
+}
+// $this->headLink()->appendStylesheet($this->assetUrl('css/user-bar.css', 'Omeka'));
+$this->headLink()->appendStylesheet($this->assetUrl('css/ffuserbar.css'));
+// $this->headLink()->appendStylesheet('//fonts.googleapis.com/css?family=Source+Code+Pro|Lato:400,400italic,700,700italic');
+?>
+
+	<form class="input-box" action="<?php echo $this->escapeHtml($searchActionNav); ?>" id="navsearchform" >
+		<input type="text" name="fulltext_search" placeholder="<?php echo $translate("Search"); ?>" aria-label="<?php echo $translate("Search"); ?>" />
+		<span class="navicon search">
+			<i class="search-icon o-icon-search"></i>
+		</span>
+		<!-- <i class="close-icon o-icon-close"></i> -->
+	</form>

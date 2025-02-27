@@ -1,0 +1,144 @@
+ .input-box {
+    position: relative;
+    width: 20%;
+    height: 55px;
+    /* margin: 0 50px; */
+    /* background-color: #fff; */
+    border-radius: 6px;
+    transition: all 0.5s ease-in-out;
+    display: inline-flex;
+}
+.navsearch.open {
+  max-width: 350px;
+}
+.input-box input {
+  position: relative;
+  width: 3vw;
+  height: 100%;
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+  padding: 0 15px;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  transition: all 0.5s ease-in-out;
+}
+.input-box.open {
+    max-width: 20vw;
+} 
+.input-box.open input {
+  margin: 0vw 1vw;
+  padding: 0 15px 0 65px;
+  width: 23vw;
+  height:55px;
+}
+
+.input-box .search {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.input-box.open .search {
+  border-radius: 6px 0 0 6px;
+}
+.search .search-icon {
+  font-size: 1em;
+  color: #1c1c1c;
+}
+.input-box .close-icon {
+  position: absolute;
+  top: 50%;
+  right: -45px;
+  font-size: 1.3em;
+  color: #1c1c1c;
+  padding: 5px;
+  transform: translateY(-50%);
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+  pointer-events: none;
+  opacity: 0;
+}
+.input-box.open .close-icon {
+  transform: translateY(-50%) rotate(180deg);
+  pointer-events: auto;
+  opacity: 1;
+}
+.navicon {
+    padding-left: .5rem;
+    margin-left:auto;
+}
+.navlogo {
+    /* display: flex; */
+    margin-right: auto;
+    padding: .5rem;
+    min-height: 64px;
+    max-width: 6vw;
+}
+.navicon:hover + #fulltext_search {
+    display: block;
+}
+.navlogo > a > img {
+    max-height: 100%;
+    max-width: 50px;
+}
+.navicon:hover + #fulltext_search {
+    display: block;
+}
+.navsearch {
+    /* display: flex; */
+    margin-left: auto;
+    /* padding-right: .5rem; */
+    /* width: 15vw; */
+        
+    position: relative;
+    width: 100%;
+    max-width: 13vw;
+    height: 55px;
+    /* margin: 0 50px; */
+    margin-right: 5vw;
+    border-radius: 6px;
+    transition: all 0.5s ease-in-out;
+}
+.navsearch input {  
+    height: 55px;
+}
+@media screen and (max-width:700px) {
+    .navsearch {
+        float: none;
+        display: block;
+        width: 100vw;
+    }
+    .navlogo {
+        float: none;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        margin: 0;
+        padding: 0px;
+    }
+    .navsearch input[type=text] {
+        width: 78vw;
+        margin-top: .4rem;
+    }
+    .navsearch {
+        margin-left: 1vw;
+        padding-left: 1vw;
+        width:100vw;
+    }
+    .navicon, .search-icon, .close-icon, .input-box .search {
+        display:none;
+    }
+    .input-box input {
+        width: 100vw;
+    }
+}
